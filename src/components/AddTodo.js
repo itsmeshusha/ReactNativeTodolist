@@ -19,6 +19,8 @@ export const AddTodo = (props) => {
                        onChangeText={(text) => setValue(text)}
                        value={value}
                        placeholder={'What to do?'}
+                       autoCorrect={false}
+                       autoCapitalize={'none'}
             />
             <Button title={"Add"} onPress={pressHandler}/>
         </View>
