@@ -13,12 +13,11 @@ export const MainScreen = (props) => {
                 data={props.todos}
                 renderItem={({item}) => <Todo todo={item} key={item.id}
                                               onRemove={props.removeTodo}
+                                              onOpen={props.openTodo}
                 />}
             />
         </View>
     )
 }
 
-const styles = StyleSheet.create({
-
-})
+const styles = StyleSheet.create({})

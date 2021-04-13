@@ -6,7 +6,10 @@ import {TodoScreen} from "./src/screens/TodoScreen";
 
 export default function App() {
     const [todoId, setTodoId] = useState(null)
-    const [todos, setTodos] = useState([])
+    const [todos, setTodos] = useState([
+        {id: '1', title: 'Learn Javascript'},
+        {id: '2', title: 'Learn React Native'}
+    ])
 
     const addTodo = (title) => {
         setTodos(prevTodos => [
@@ -22,10 +25,14 @@ export default function App() {
         setTodos(prev => prev.filter(todo => todo.id !== id))
     }
 
-    let content = <MainScreen addTodo={addTodo} todos={todos} removeTodo={removeTodo}/>
+    let content = <MainScreen addTodo={addTodo}
+                              todos={todos}
+                              removeTodo={removeTodo}
+                              openTodo={setTodoId}/>
 
     if (todoId) {
-        content = <TodoScreen />
+        const selectedTodo = todos.find(td => td.id === todoId)
+        content = <TodoScreen goBack={() => setTodoId(null)} todo={selectedTodo}/>
     }
 
     return (
