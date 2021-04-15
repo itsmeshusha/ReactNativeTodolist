@@ -15,7 +15,7 @@ export const TodoScreen = (props) => {
                     <Button title={'Back'} color={THEME.GREY_COLOR} onPress={props.goBack}/>
                 </View>
                 <View style={styles.button}>
-                    <Button title={'Delete'} color={THEME.DANGER_COLOR} onPress={() => console.log('To remove')}/>
+                    <Button title={'Delete'} color={THEME.DANGER_COLOR} onPress={() => props.onRemove(props.todo.id)}/>
                 </View>
             </View>
         </View>
