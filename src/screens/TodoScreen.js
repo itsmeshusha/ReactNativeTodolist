@@ -6,9 +6,19 @@ import {EditModal} from "../components/EditModal";
 
 export const TodoScreen = (props) => {
     const [modal, setModal] = useState(false)
+
+    const saveHandler = (title) => {
+        props.onSave(props.todo.id, title)
+        setModal(false)
+    }
+
     return (
         <View>
-            <EditModal visible={modal} onCancel={() => setModal(false)}/>
+            <EditModal value={props.todo.title}
+                       visible={modal}
+                       onCancel={() => setModal(false)}
+                       onSave={saveHandler}
+            />
             <AppCard style={styles.card}>
                 <Text style={styles.title}>{props.todo.title}</Text>
                 <Button title={'Edit'} onPress={() => setModal(true)}/>
