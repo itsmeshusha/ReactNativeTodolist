@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import {StyleSheet, View, TextInput, Button, Alert} from 'react-native'
+import {AntDesign} from '@expo/vector-icons'
+
 
 export const AddTodo = (props) => {
     const [value, setValue] = useState('')
@@ -22,7 +24,10 @@ export const AddTodo = (props) => {
                        autoCorrect={false}
                        autoCapitalize={'none'}
             />
-            <Button title={"Add"} onPress={pressHandler}/>
+            <AntDesign.Button onPress={pressHandler} name={'pluscircleo'}>
+                Add
+            </AntDesign.Button>
+            {/*<Button title={"Add"} onPress={pressHandler}/>*/}
         </View>
     )
 }
