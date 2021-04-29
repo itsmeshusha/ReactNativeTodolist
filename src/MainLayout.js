@@ -5,10 +5,12 @@ import {THEME} from "./theme";
 import {MainScreen} from "./screens/MainScreen";
 import {TodoScreen} from "./screens/TodoScreen";
 import {TodoContext} from "./context/todo/todoContext";
+import {ScreenContext} from "./context/screen/screenContext";
 
 export const MainLayout = () => {
     const {todos, addTodo, removeTodo, updateTodo} = useContext(TodoContext)
-    const [todoId, setTodoId] = useState(null)
+    const {todoId, changeScreen} = useContext(ScreenContext)
+    //const [todoId, setTodoId] = useState(null)
 
     // const addTodo = (title) => {
     //     setTodos(prevTodos => [
@@ -56,12 +58,12 @@ export const MainLayout = () => {
     let content = <MainScreen addTodo={addTodo}
                               todos={todos}
                               removeTodo={removeTodo}
-                              openTodo={setTodoId}/>
+                              openTodo={changeScreen}/>
 
     if (todoId) {
         const selectedTodo = todos.find(td => td.id === todoId)
         content = <TodoScreen onRemove={removeTodo}
-                              goBack={() => setTodoId(null)}
+                              goBack={() => changeScreen(null)}
                               todo={selectedTodo}
                               onSave={updateTodo}
         />
