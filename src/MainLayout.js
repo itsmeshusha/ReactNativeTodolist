@@ -10,34 +10,7 @@ import {ScreenContext} from "./context/screen/screenContext";
 export const MainLayout = () => {
     const {todoId} = useContext(ScreenContext)
 
-    //
-    // const removeTodo = (id) => {
-    //     const todo = todos.find(t => t.id === id)
-    //     Alert.alert(
-    //         'Delete task',
-    //         `Are you sure to delete "${todo.title}" task?`,
-    //         [
-    //             {
-    //                 text: 'Cancel',
-    //                 style: 'cancel'
-    //             },
-    //             {
-    //                 text: 'Delete',
-    //                 style: 'destructive',
-    //                 onPress: () => {
-    //                     setTodoId(null)
-    //                     setTodos(prev => prev.filter(todo => todo.id !== id))
-    //                 }
-    //             }
-    //         ],
-    //         {cancelable: false}
-    //     )
-    //
-    // }
-
-
-
-    return (
+        return (
         <View>
             <Navbar title={"Todo App"}/>
             <View style={styles.container}>
